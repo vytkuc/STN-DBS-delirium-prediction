@@ -44,12 +44,12 @@ Fig3_radiomic_features_correlations.py will present Spearman correlation coeffic
 Need to run [DBS outcome prediction](#1-dbs-outcome-prediction) before this:
 
 'Fig4_ROC.py' will plot ROC of 8 statistical and machine learning algorithms for STN-DBS delirium prediction.
-Dataset with 5 features:
-![Fig4_ROC](figures/Fig4_ROC_5_features.png) 
-Dataset with 10 features:
-![Fig4_ROC](figures/Fig4_ROC_10_features.png) 
 Dataset with 20 features:
 ![Fig4_ROC](figures/Fig4_ROC_20_features.png) 
+Dataset with 10 features:
+![Fig4_ROC](figures/Fig4_ROC_10_features.png) 
+Dataset with 5 features:
+![Fig4_ROC](figures/Fig4_ROC_5_features.png) 
 
 ## References
 Article under revision:  

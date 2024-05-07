@@ -10,7 +10,7 @@ from statistics import stdev
 import os
 
 #Select 5, 10 or 20
-number_of_features = 20
+number_of_features = 5
 base_fpr = np.linspace(0, 1, 101)
 datadir = "data"
 accs = np.load(os.path.join(datadir, str(number_of_features), "ACC.npy"))
@@ -44,7 +44,7 @@ def DBS_outcome_prediction_accuracy(res_acc, res_sens, res_spec, res_AUC, tprs, 
 fig, axes = plt.subplots(2,4, figsize=(20, 10))
 axes = axes.ravel()
 
-if number_of_features == 20:
+if number_of_features == 5:
     names = {0: '1A Regularized Logistic Regression', 1:'1B Decision Tree Classifier',
          2: '1C Linear discriminant Analysis', 3: '1D Naive Bayes Classifier',
          4: '1E Support Vector Machine', 5: '1F Artificial Neural Network',
@@ -54,7 +54,7 @@ elif number_of_features == 10:
          2: '2C Linear discriminant Analysis', 3: '2D Naive Bayes Classifier',
          4: '2E Support Vector Machine', 5: '2F Artificial Neural Network',
          6: '2G One Class Support Vector Machine', 7: '2H Autoencoder'}
-elif number_of_features == 5:
+elif number_of_features == 20:
         names = {0: '3A Regularized Logistic Regression', 1:'3B Decision Tree Classifier',
          2: '3C Linear discriminant Analysis', 3: '3D Naive Bayes Classifier',
          4: '3E Support Vector Machine', 5: '3F Artificial Neural Network',

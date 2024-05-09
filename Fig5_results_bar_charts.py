@@ -48,8 +48,6 @@ def plot_barchart(ax, data, title):
     
 datasets = [5, 10, 20]
 
-base_fpr = np.linspace(0, 1, 101)
-
 # Determine the global y-axis limits
 y_min = 0
 y_max = 1
@@ -62,41 +60,28 @@ for number_of_features in datasets:
     spes = np.load(os.path.join(datadir, "SPEC.npy"))
     aucs = np.load(os.path.join(datadir, "AUC.npy"))
     
-    if number_of_features == 5:
-        names = {0: '1A Regularized Logistic Regression', 1:'1B Decision Tree Classifier',
-         2: '1C Linear discriminant Analysis', 3: '1D Naive Bayes Classifier',
-         4: '1E Support Vector Machine', 5: '1F Artificial Neural Network',
-         6: '1G One Class Support Vector Machine', 7: '1H Autoencoder'}
-    
-    elif number_of_features == 10:
-        names = {0: '2A Regularized Logistic Regression', 1:'2B Decision Tree Classifier',
-         2: '2C Linear discriminant Analysis', 3: '2D Naive Bayes Classifier',
-         4: '2E Support Vector Machine', 5: '2F Artificial Neural Network',
-         6: '2G One Class Support Vector Machine', 7: '2H Autoencoder'}
-    
-    elif number_of_features == 20:
-        names = {0: '3A Regularized Logistic Regression', 1:'3B Decision Tree Classifier',
-         2: '3C Linear discriminant Analysis', 3: '3D Naive Bayes Classifier',
-         4: '3E Support Vector Machine', 5: '3F Artificial Neural Network',
-         6: '3G One Class Support Vector Machine', 7: '3H Autoencoder'}
-    
-    fig, axs = plt.subplots(2, 4, figsize=(12, 8))
+    names = {0: 'LR', 1:'DT',
+         2: 'LDA', 3: 'NB',
+         4: 'SVM', 5: 'ANN',
+         6: 'OC-SVM', 7: 'ANN-A'}
+
+    fig, axs = plt.subplots(1, 8, figsize=(16, 4), constrained_layout=True, sharex=True, sharey=True)
     fig.suptitle(f'Performance Metrics for {number_of_features} Features')
 
     for i, el in enumerate(list([0, 1, 2, 3, 4, 5, 6, 7])):
         DBS_outcome_prediction_accuracy( accs[el], sens[el], spes[el], aucs[el], names[el])
         
         # Plot bar charts
-        ax = axs[i//4, i%4]
+        #ax = axs[i//4, i%4]
+        ax = axs[i]
         plot_barchart(ax, [accs[el], sens[el], spes[el], aucs[el]], names[el])
-
+    
     plt.tight_layout()
     
     figpath = os.path.join("figures", "Fig5_Bar_charts_"+str(number_of_features)+"_features.png")
     fig.savefig(figpath, dpi=300, bbox_inches='tight', format='png')
     plt.show()
-        
-        
+     
         
         
         

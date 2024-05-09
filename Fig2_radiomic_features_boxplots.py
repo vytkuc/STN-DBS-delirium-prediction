@@ -17,7 +17,7 @@ df = pd.read_csv(datafile, index_col=0)
 fig, axes = plt.subplots(5,4, figsize=(15, 20))
 
 for i,el in enumerate(list(df.columns.values)[:-1]):
-    a = df.boxplot(el, by='STN-DBS delirium (1-yes, 2-no)', ax=axes.flatten()[i])
+    a = df.boxplot(el, by='STN-DBS delirium (1-yes, 2-no)', ax=axes.flatten()[i], patch_artist=True, boxprops=dict(facecolor='skyblue', color='black', linewidth=2), medianprops=dict(color='orange', linewidth=2))
     a.grid('on', which='major', linewidth=1)
     title = a.set_title("\n".join(wrap(el, 30)))
     title.set_y(1.05)

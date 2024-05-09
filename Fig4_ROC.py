@@ -10,7 +10,7 @@ from statistics import stdev
 import os
 
 #Select 5, 10 or 20
-number_of_features = 5
+number_of_features = 20
 base_fpr = np.linspace(0, 1, 101)
 datadir = "data"
 accs = np.load(os.path.join(datadir, str(number_of_features), "ACC.npy"))
@@ -41,7 +41,7 @@ def DBS_outcome_prediction_accuracy(res_acc, res_sens, res_spec, res_AUC, tprs, 
     axis.text(x = 0.5, y = 0.15, s="AUC = %4.2f (%4.2f)" % (sum(res_AUC)/len(res_AUC), stdev(res_AUC)))
     axis.set_title(name, fontsize=15)
 
-fig, axes = plt.subplots(2,4, figsize=(20, 10))
+fig, axes = plt.subplots(2,4, figsize=(20, 7))
 axes = axes.ravel()
 
 if number_of_features == 5:
@@ -65,6 +65,8 @@ else:
 print("Accuracy %  Sensitivity %  Specificity %  AUC")
 for i, el in enumerate(list([0, 1, 2, 3, 4, 5, 6, 7])):
     DBS_outcome_prediction_accuracy( accs[el], sens[el], spes[el], aucs[el], tprs[el], axes[i], names[el])
+
+plt.tight_layout()
 
 figpath = os.path.join("figures", "Fig4_ROC_"+str(number_of_features)+"_features.png")
 fig.savefig(figpath, dpi=300, bbox_inches='tight', format='png')

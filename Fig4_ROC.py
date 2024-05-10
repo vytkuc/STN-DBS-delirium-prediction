@@ -44,23 +44,10 @@ def DBS_outcome_prediction_accuracy(res_acc, res_sens, res_spec, res_AUC, tprs, 
 fig, axes = plt.subplots(2,4, figsize=(20, 7))
 axes = axes.ravel()
 
-if number_of_features == 5:
-    names = {0: '1A Regularized Logistic Regression', 1:'1B Decision Tree Classifier',
-         2: '1C Linear discriminant Analysis', 3: '1D Naive Bayes Classifier',
-         4: '1E Support Vector Machine', 5: '1F Artificial Neural Network',
-         6: '1G One Class Support Vector Machine', 7: '1H Autoencoder'}
-elif number_of_features == 10:
-        names = {0: '2A Regularized Logistic Regression', 1:'2B Decision Tree Classifier',
-         2: '2C Linear discriminant Analysis', 3: '2D Naive Bayes Classifier',
-         4: '2E Support Vector Machine', 5: '2F Artificial Neural Network',
-         6: '2G One Class Support Vector Machine', 7: '2H Autoencoder'}
-elif number_of_features == 20:
-        names = {0: '3A Regularized Logistic Regression', 1:'3B Decision Tree Classifier',
-         2: '3C Linear discriminant Analysis', 3: '3D Naive Bayes Classifier',
-         4: '3E Support Vector Machine', 5: '3F Artificial Neural Network',
-         6: '3G One Class Support Vector Machine', 7: '3H Autoencoder'}
-else:
-    print("Error")
+names = {0: 'LR', 1:'DT',
+         2: 'LDA', 3: 'NB',
+         4: 'SVM', 5: 'ANN',
+         6: 'OC-SVM', 7: 'ANN-A'}
 
 print("Accuracy %  Sensitivity %  Specificity %  AUC")
 for i, el in enumerate(list([0, 1, 2, 3, 4, 5, 6, 7])):
@@ -68,5 +55,5 @@ for i, el in enumerate(list([0, 1, 2, 3, 4, 5, 6, 7])):
 
 plt.tight_layout()
 
-figpath = os.path.join("figures", "Fig4_ROC_"+str(number_of_features)+"_features.png")
-fig.savefig(figpath, dpi=300, bbox_inches='tight', format='png')
+figpath = os.path.join("figures", "Fig4_ROC_"+str(number_of_features)+"_features.tiff")
+fig.savefig(figpath, dpi=300, bbox_inches='tight', format='tiff')

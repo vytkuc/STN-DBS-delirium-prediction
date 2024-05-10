@@ -9,7 +9,6 @@ import matplotlib.pyplot as plt
 from textwrap import wrap
 import os
 
-
 datadir = "data"
 datafile = os.path.join(datadir, "data_radiomics_features_selected_mRMR.csv")
 df = pd.read_csv(datafile, index_col=0)
@@ -24,5 +23,6 @@ for i,el in enumerate(list(df.columns.values)[:-1]):
 
 plt.tight_layout() 
 plt.suptitle('')
-figpath = os.path.join("figures", "Fig2_radiomic_features_boxplots.png")
-fig.savefig(figpath, dpi=400, bbox_inches='tight', format='png')
+figpath = os.path.join("figures", "Fig2_radiomic_features_boxplots.tiff")
+fig.savefig(figpath, dpi=400, bbox_inches='tight', format='tiff')
+

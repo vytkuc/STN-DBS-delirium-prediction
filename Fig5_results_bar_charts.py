@@ -30,17 +30,16 @@ def plot_barchart(ax, data, title):
     mean_values = [np.mean(metric) for metric in data]
     std_values = [np.std(metric) for metric in data]
 
-    # Limit std values to not exceed 1.0
-    std_values = [min(std, 1.0) for std in std_values]
-
     # Create bar chart with error bars
     bar_positions = np.arange(len(mean_values))
     for pos, mean, yerr, color in zip(bar_positions, mean_values, std_values, colors):
-        ax.bar(pos, mean, yerr=yerr, align='center', alpha=0.7, color=color, ecolor='black', capsize=5, width=0.5)
+        ax.bar(pos, mean, align='center', alpha=0.7, color=color, ecolor='black', capsize=5, width=0.5)
+        ax.errorbar(pos, mean, yerr=yerr, fmt='none', ecolor='black', capsize=None)
 
     # Set chart title and labels
     ax.set_title(title)
     ax.set_xticks(bar_positions)
+    ax.set_ylim(0, 1.0)
     ax.set_xticklabels(['Acc', 'Sens', 'Spec', 'AUC'])
 
     # Remove top border of subplot
@@ -65,14 +64,16 @@ for number_of_features in datasets:
          4: 'SVM', 5: 'ANN',
          6: 'OC-SVM', 7: 'ANN-A'}
 
-    fig, axs = plt.subplots(1, 8, figsize=(16, 4), constrained_layout=True, sharex=True, sharey=True)
-    fig.suptitle(f'Performance Metrics for {number_of_features} Features')
+    fig, axs = plt.subplots(1, 8, figsize=(14, 4), constrained_layout=True, sharex=True, sharey=True)
+    #fig.suptitle(f'Performance Metrics for {number_of_features} Features')
 
     for i, el in enumerate(list([0, 1, 2, 3, 4, 5, 6, 7])):
         DBS_outcome_prediction_accuracy( accs[el], sens[el], spes[el], aucs[el], names[el])
         
         # Plot bar charts
+        #for 2x4
         #ax = axs[i//4, i%4]
+        #for 1x8
         ax = axs[i]
         plot_barchart(ax, [accs[el], sens[el], spes[el], aucs[el]], names[el])
     

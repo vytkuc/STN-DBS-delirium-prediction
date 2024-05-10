@@ -36,20 +36,23 @@ prediction_STN_DBS_delirium.py will run 8 statistical and machine learning algor
 Fig2_radiomic_features_boxplots.py will show the boxplots of the selected radiomic features in two classes: no postoperative STN-DBS delirium vs postoperative STN-DBS delirium:
 ![Fig2_radiomic_features_boxplots](figures/Fig2_radiomic_features_boxplots.png)
 
-
-Fig3_radiomic_features_correlations.py will present Spearman correlation coefficients between the selected radiomic features:
-![Fig3_radiomic_features_correlations](figures/Fig3_radiomic_features_correlations.png)
-
-
 Need to run [DBS outcome prediction](#1-dbs-outcome-prediction) before this:
 
-Fig4_ROC.py will plot ROC of 8 statistical and machine learning algorithms for STN-DBS delirium prediction.
-Dataset with 20 features:
-![Fig4_ROC](figures/Fig4_ROC_20_features.png) 
+Fig3_results_bar_charts.py will present classification results of the selected radiomic features.
+Dataset with 5 features:
+![Fig3_results_bar_charts](figures/Fig3_Bar_charts_5_features.png) 
 Dataset with 10 features:
-![Fig4_ROC](figures/Fig4_ROC_10_features.png) 
+![Fig3_results_bar_charts](figures/Fig3_Bar_charts_10_features.png) 
+Dataset with 20 features:
+![Fig3_results_bar_charts](figures/Fig3_Bar_charts_20_features.png) 
+
+Fig4_ROC.py will plot ROC of 8 statistical and machine learning algorithms for STN-DBS delirium prediction.
 Dataset with 5 features:
 ![Fig4_ROC](figures/Fig4_ROC_5_features.png) 
+Dataset with 10 features:
+![Fig4_ROC](figures/Fig4_ROC_10_features.png) 
+Dataset with 20 features:
+![Fig4_ROC](figures/Fig4_ROC_20_features.png) 
 
 ## References
 Article under revision:  

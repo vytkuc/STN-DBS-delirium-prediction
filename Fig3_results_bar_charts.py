@@ -79,7 +79,7 @@ for number_of_features in datasets:
     
     plt.tight_layout()
     
-    figpath = os.path.join("figures", "Fig5_Bar_charts_"+str(number_of_features)+"_features.png")
+    figpath = os.path.join("figures", "Fig3_Bar_charts_"+str(number_of_features)+"_features.png")
     fig.savefig(figpath, dpi=300, bbox_inches='tight', format='png')
     plt.show()
      

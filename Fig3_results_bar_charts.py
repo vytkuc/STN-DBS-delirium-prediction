@@ -43,7 +43,7 @@ def plot_barchart(ax, data, title):
     ax.errorbar(bar_positions[:3], [100 * mean for mean in mean_values[:3]],
                 yerr=[100 * std for std in capped_std_left], fmt='none', ecolor='black', capsize=5)
 
-    ax.set_ylabel("Percentage for Acc, Sens, Spec (%)")
+    ax.set_ylabel("Acc, Sens, Spec (%)")
     ax.set_ylim(0, left_ylim)
 
     # Plot AUC on right Y-axis

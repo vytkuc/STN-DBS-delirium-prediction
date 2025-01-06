@@ -36,12 +36,12 @@ def DBS_outcome_prediction_accuracy(res_acc, res_sens, res_spec, res_AUC, tprs, 
     axis.plot([0, 1], [0, 1],'r--')
     axis.set_xlim([-0.01, 1.01])
     axis.set_ylim([-0.01, 1.01])
-    axis.set_ylabel('True Positive Rate')
-    axis.set_xlabel('False Positive Rate')
-    axis.text(x = 0.5, y = 0.15, s="AUC = %4.2f (%4.2f)" % (sum(res_AUC)/len(res_AUC), stdev(res_AUC)))
-    axis.set_title(name, fontsize=15)
+    axis.set_ylabel('True Positive Rate', fontsize=14)
+    axis.set_xlabel('False Positive Rate', fontsize=14)
+    axis.text(x = 0.5, y = 0.15, s="AUC = %4.2f (%4.2f)" % (sum(res_AUC)/len(res_AUC), stdev(res_AUC)), fontsize=14)
+    axis.set_title(name, fontsize=18)
 
-fig, axes = plt.subplots(2,4, figsize=(20, 7))
+fig, axes = plt.subplots(2,4, figsize=(20, 8))
 axes = axes.ravel()
 
 names = {0: 'LR', 1:'DT',
@@ -54,6 +54,10 @@ for i, el in enumerate(list([0, 1, 2, 3, 4, 5, 6, 7])):
     DBS_outcome_prediction_accuracy( accs[el], sens[el], spes[el], aucs[el], tprs[el], axes[i], names[el])
 
 plt.tight_layout()
+#Increase Tick Font Size Globally
+plt.rc('xtick', labelsize=12)  # Font size for x-axis ticks
+plt.rc('ytick', labelsize=12)  # Font size for y-axis ticks
+
 
 # PNG
 figpath = os.path.join("figures", "Fig4_ROC_"+str(number_of_features)+"_features.png")

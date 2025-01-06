@@ -36,5 +36,5 @@ for i,el in enumerate(list(df.columns.values)[:-1]):
 plt.tight_layout() 
 plt.suptitle('')
 figpath = os.path.join("figures", "Fig2_radiomic_features_boxplots.png")
-fig.savefig(figpath, dpi=400, bbox_inches='tight', format='png')
+fig.savefig(figpath, dpi=1200, bbox_inches='tight', format='png')
 

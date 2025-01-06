@@ -10,7 +10,7 @@ from statistics import stdev
 import os
 
 #Select 5, 10 or 20
-number_of_features = 20
+number_of_features = 10
 base_fpr = np.linspace(0, 1, 101)
 datadir = "data"
 accs = np.load(os.path.join(datadir, str(number_of_features), "ACC.npy"))
@@ -61,7 +61,7 @@ plt.rc('ytick', labelsize=12)  # Font size for y-axis ticks
 
 # PNG
 figpath = os.path.join("figures", "Fig4_ROC_"+str(number_of_features)+"_features.png")
-fig.savefig(figpath, dpi=300, bbox_inches='tight', format='png')
+fig.savefig(figpath, dpi=1200, bbox_inches='tight', format='png')
 
 # TIFF
 #figpath = os.path.join("figures", "Fig4_ROC_"+str(number_of_features)+"_features.tiff")

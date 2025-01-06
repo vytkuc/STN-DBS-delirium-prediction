@@ -10,7 +10,7 @@ from statistics import stdev
 import os
 
 #Select 5, 10 or 20
-number_of_features = 10
+number_of_features = 20
 base_fpr = np.linspace(0, 1, 101)
 datadir = "data"
 accs = np.load(os.path.join(datadir, str(number_of_features), "ACC.npy"))
@@ -46,8 +46,8 @@ axes = axes.ravel()
 
 names = {0: 'LR', 1:'DT',
          2: 'LDA', 3: 'NB',
-         4: 'SVM', 5: 'ANN',
-         6: 'OC-SVM', 7: 'ANN-A'}
+         4: 'SVM', 5: 'FNN',
+         6: 'OC-SVM', 7: 'FNN-A'}
 
 print("Accuracy %  Sensitivity %  Specificity %  AUC")
 for i, el in enumerate(list([0, 1, 2, 3, 4, 5, 6, 7])):
